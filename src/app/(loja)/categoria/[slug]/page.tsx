@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: SEO_TITLE[category.slug] ?? category.name,
     description: `${category.description} Frete grátis acima de R$ 299 e troca grátis em 30 dias.`,
     alternates: { canonical: `/categoria/${category.slug}` },
-    openGraph: openGraph({ url: `/categoria/${category.slug}`, title: `${category.name} | KIM KRISS®`, description: category.description }),
+    openGraph: openGraph({ url: `/categoria/${category.slug}`, title: `${category.name} | KIM & KRIS`, description: category.description }),
   };
 }
 

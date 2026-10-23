@@ -60,19 +60,19 @@ export const HAIR_COLORS = [
  * (próximos drops). Miniaturas em /images/provador/looks/<id>.webp.
  */
 export const CURATED_LOOKS: CuratedLook[] = [
-  { id: "look-arquibancada", name: "Arquibancada", code: "STREET · 01", mannequinId: "m-kaue", productSlugs: ["camiseta-oversized-kim-kriss-07-preta", "bermuda-mesh-kim-kriss-preta", "bone-dad-hat-kim-kriss-preto", "tenis-court-low-branco"] },
-  { id: "look-y2k", name: "Y2K Drop", code: "Y2K · 02", mannequinId: "m-mia", productSlugs: ["baby-tee-kim-kriss-rosa-chiclete", "saia-jeans-cintura-baixa-azul", "tenis-court-low-branco"] },
+  { id: "look-arquibancada", name: "Arquibancada", code: "STREET · 01", mannequinId: "m-kaue", productSlugs: ["camiseta-oversized-athletic-07-preta", "bermuda-mesh-listrada-preta", "bone-dad-hat-domingo-preto", "tenis-court-low-branco"] },
+  { id: "look-y2k", name: "Y2K Drop", code: "Y2K · 02", mannequinId: "m-mia", productSlugs: ["baby-tee-y2k-rosa-chiclete", "saia-jeans-cintura-baixa-azul", "tenis-court-low-branco"] },
   { id: "look-social-club", name: "Social Club", code: "FORMAL · 03", mannequinId: "m-kaue", productSlugs: ["camisa-oxford-branca", "blazer-alfaiataria-oversized-preto", "calca-alfaiataria-pregas-grafite", "mocassim-couro-preto"] },
   { id: "look-noite", name: "Noite de cetim", code: "FORMAL · 04", mannequinId: "m-mia", productSlugs: ["vestido-slip-cetim-preto", "blazer-alfaiataria-oversized-preto", "mocassim-couro-preto"] },
   { id: "look-pinstripe", name: "Pinstripe", code: "STREET · 05", mannequinId: "m-kaue", productSlugs: ["camisa-baseball-pinstripe-preta", "calca-jeans-baggy-azul-lavado", "tenis-court-low-branco"] },
   { id: "look-inverno", name: "Inverno 26", code: "COZY · 06", mannequinId: "m-mia", productSlugs: ["moletom-cropped-cinza-mescla", "calca-moletom-wide-cinza-mescla", "bone-five-panel-vermelho", "tenis-court-low-branco"] },
-  { id: "look-quadra", name: "Dia de quadra", code: "SPORT · 07", mannequinId: "m-kaue", productSlugs: ["camisa-basquete-mesh-23-vermelha", "bermuda-mesh-kim-kriss-preta", "tenis-court-low-branco"] },
+  { id: "look-quadra", name: "Dia de quadra", code: "SPORT · 07", mannequinId: "m-kaue", productSlugs: ["camisa-basquete-mesh-23-vermelha", "bermuda-mesh-listrada-preta", "tenis-court-low-branco"] },
   { id: "look-varsity", name: "Varsity", code: "STREET · 08", mannequinId: "m-mia", productSlugs: ["top-regata-canelada-preta", "jaqueta-varsity-bordo-creme", "calca-wide-leg-alfaiataria-off-white", "tenis-court-low-branco"] },
   { id: "look-cetim", name: "Cetim & moletom", code: "MIX · 09", mannequinId: "m-mia", productSlugs: ["moletom-careca-arquibancada-creme", "saia-midi-cetim-champagne", "mocassim-couro-preto"] },
-  { id: "look-corta-vento", name: "Corta-vento", code: "SPORT · 10", mannequinId: "m-kaue", productSlugs: ["regata-machao-kim-kriss-16-cinza-mescla", "corta-vento-nylon-azul-marinho", "calca-moletom-wide-cinza-mescla", "bone-five-panel-vermelho", "tenis-court-low-branco"] },
-  { id: "look-jersey-dress", name: "Jersey dress", code: "STREET · 11", mannequinId: "m-mia", productSlugs: ["vestido-jersey-oversized-07-preto", "bone-dad-hat-kim-kriss-preto", "tenis-court-low-branco"] },
-  { id: "look-role", name: "Rolê", code: "SKATE · 12", mannequinId: "m-kaue", productSlugs: ["gorro-beanie-kim-kriss-preto", "camiseta-skate-boxy-kim-kriss-skate-co-off-white", "jaqueta-workwear-lona-caramelo", "calca-cargo-skate-oliva", "tenis-skate-vulcanizado-preto", "skate-completo-kim-kriss-8-25"] },
-  { id: "look-pista", name: "Pista", code: "SKATE · 13", mannequinId: "m-mia", productSlugs: ["camiseta-manga-longa-kk-preta", "bermuda-cargo-preta", "tenis-skate-camurca-bege-sola-goma", "skate-completo-kim-kriss-8-25"] },
-  { id: "look-flanela", name: "Flanela", code: "SKATE · 14", mannequinId: "m-kaue", productSlugs: ["camiseta-skate-boxy-kim-kriss-skate-co-off-white", "camisa-flanela-xadrez-vermelha", "calca-carpinteiro-jeans-preta", "tenis-skate-camurca-bege-sola-goma", "bone-five-panel-vermelho"] },
+  { id: "look-corta-vento", name: "Corta-vento", code: "SPORT · 10", mannequinId: "m-kaue", productSlugs: ["regata-machao-athletics-16-cinza-mescla", "corta-vento-nylon-azul-marinho", "calca-moletom-wide-cinza-mescla", "bone-five-panel-vermelho", "tenis-court-low-branco"] },
+  { id: "look-jersey-dress", name: "Jersey dress", code: "STREET · 11", mannequinId: "m-mia", productSlugs: ["vestido-jersey-oversized-07-preto", "bone-dad-hat-domingo-preto", "tenis-court-low-branco"] },
+  { id: "look-role", name: "Rolê", code: "SKATE · 12", mannequinId: "m-kaue", productSlugs: ["gorro-beanie-canelado-preto", "camiseta-skate-boxy-skate-club-off-white", "jaqueta-workwear-lona-caramelo", "calca-cargo-skate-oliva", "tenis-skate-vulcanizado-preto", "skate-completo-sao-paulo-8-25"] },
+  { id: "look-pista", name: "Pista", code: "SKATE · 13", mannequinId: "m-mia", productSlugs: ["camiseta-manga-longa-sao-paulo-preta", "bermuda-cargo-preta", "tenis-skate-camurca-bege-sola-goma", "skate-completo-sao-paulo-8-25"] },
+  { id: "look-flanela", name: "Flanela", code: "SKATE · 14", mannequinId: "m-kaue", productSlugs: ["camiseta-skate-boxy-skate-club-off-white", "camisa-flanela-xadrez-vermelha", "calca-carpinteiro-jeans-preta", "tenis-skate-camurca-bege-sola-goma", "bone-five-panel-vermelho"] },
   { id: "look-off-3", name: "Próximo drop", code: "OFF ?", mannequinId: "m-mia", productSlugs: [], locked: true },
 ];

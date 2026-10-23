@@ -19,7 +19,7 @@ const g = globalThis as unknown as {
 
 export function databaseFile(): string {
   // QUADRA_DB_PATH mantido por compatibilidade (testes usam ":memory:").
-  return process.env.KIMKRISS_DB_PATH || process.env.QUADRA_DB_PATH || path.join(process.cwd(), "data", "kimkriss.db");
+  return process.env.KIMKRISS_DB_PATH || process.env.QUADRA_DB_PATH || path.join(process.cwd(), "data", "kimekris.db");
 }
 
 function migrate(db: DatabaseSync) {

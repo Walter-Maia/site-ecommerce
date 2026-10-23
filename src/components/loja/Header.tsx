@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV } from "@/data/site";
+import { NAV, SITE } from "@/data/site";
+import { STATIC_DEMO } from "@/lib/static-demo";
 import { Logo } from "./Logo";
 import { IconBag, IconMenu, IconSearch, IconUser } from "./icons";
 import { useStore } from "./StoreProvider";
@@ -13,7 +14,9 @@ import { useStore } from "./StoreProvider";
  * some ao rolar para baixo e volta ao rolar para cima.
  */
 export function Header() {
-  const pathname = usePathname();
+  const rawPathname = usePathname();
+  // Demo estática (trailingSlash): "/novidades/" → "/novidades" para comparar com os links. No-op no servidor.
+  const pathname = STATIC_DEMO ? rawPathname.replace(/(.)\/$/, "$1") : rawPathname;
   const { cart, openPanel, panel } = useStore();
   const isHome = pathname === "/";
   const [atTop, setAtTop] = useState(true);
@@ -84,8 +87,8 @@ export function Header() {
           </nav>
         </div>
 
-        <Link href="/" aria-label="KIM KRISS — página inicial" className="block px-2 py-2.5 md:py-2">
-          <Logo title="" className="h-6 w-auto md:h-7" />
+        <Link href="/" aria-label={`${SITE.name} — página inicial`} className="block px-2 py-1.5">
+          <Logo title="" priority className="size-12 md:size-[52px]" />
         </Link>
 
         <div className="-mr-2.5 flex items-center justify-end">

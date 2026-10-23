@@ -7,7 +7,7 @@ import { getCurrentUser, safeNextPath } from "@/server/session";
 
 export const metadata: Metadata = {
   title: "Entrar",
-  description: "Entre na sua conta KIM KRISS® para ver pedidos e looks salvos.",
+  description: "Entre na sua conta KIM & KRIS para ver pedidos e looks salvos.",
   robots: { index: false, follow: false },
 };
 

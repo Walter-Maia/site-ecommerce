@@ -6,11 +6,11 @@ type OgImage = { url: string; width: number; height: number; alt: string; type?:
 
 /** Imagem padrão de compartilhamento (1200×630). */
 export const DEFAULT_OG_IMAGE: OgImage = {
-  url: "/images/og/kimkriss-og.jpg",
+  url: "/images/og/kimekris-og.jpg",
   width: 1200,
   height: 630,
   type: "image/jpeg",
-  alt: "Modelos da KIM KRISS com camiseta oversized 07, camisa de baseball riscada e jersey de basquete 23 numa arquibancada de concreto em São Paulo",
+  alt: "Modelos com camiseta oversized Athletic 07, camisa de baseball riscada e jersey de basquete 23 numa arquibancada de concreto em São Paulo",
 };
 
 export const PROVADOR_OG_IMAGE: OgImage = {
@@ -18,7 +18,7 @@ export const PROVADOR_OG_IMAGE: OgImage = {
   width: 1200,
   height: 630,
   type: "image/jpeg",
-  alt: "Modelo com baby tee rosa KIM KRISS e saia jeans sentada numa poltrona inflável azul ao lado de uma TV de tubo",
+  alt: "Modelo com baby tee rosa Y2K e saia jeans sentada numa poltrona inflável azul ao lado de uma TV de tubo",
 };
 
 /**
@@ -30,7 +30,7 @@ export function openGraph(og: Partial<Extract<OpenGraph, { type?: "website" }>> 
   return {
     type: "website",
     locale: SITE.locale,
-    siteName: `${SITE.name}®`,
+    siteName: `${SITE.name}`,
     images: [DEFAULT_OG_IMAGE],
     ...og,
   };

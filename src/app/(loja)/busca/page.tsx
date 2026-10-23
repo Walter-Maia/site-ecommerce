@@ -16,7 +16,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const q = readQ((await searchParams).q);
   return {
     title: q ? `Busca: ${q}` : "Buscar",
-    description: "Busque camisetas, jerseys, moletons, alfaiataria e acessórios da KIM KRISS por nome, cor ou estilo.",
+    description: "Busque camisetas, jerseys, moletons, alfaiataria e acessórios da KIM & KRIS por nome, cor ou estilo.",
     alternates: { canonical: "/busca" },
     // Páginas de resultado não entram no índice; os links seguem rastreáveis.
     robots: q ? { index: false, follow: true } : undefined,

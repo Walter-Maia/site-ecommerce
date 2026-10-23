@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: { canonical: "/provador" },
     openGraph: openGraph({
       url: "/provador",
-      title: `${TITLE} | ${SITE.name}®`,
+      title: `${TITLE} | ${SITE.name}`,
       description: DESCRIPTION,
       images: [PROVADOR_OG_IMAGE],
     }),

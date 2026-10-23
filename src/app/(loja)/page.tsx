@@ -16,13 +16,13 @@ import { getProductBySlug, listCategories, listProducts } from "@/server/catalog
 import type { CategorySlug, Product } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: { absolute: `${SITE.name}® — Streetwear e skate de São Paulo com Provador 3D` },
+  title: { absolute: `${SITE.name} — Streetwear e skate de São Paulo com Provador 3D` },
   description:
-    "Camisetas oversized de algodão pesado, jerseys, flanelas, calças cargo, tênis de skate e alfaiataria da KIM KRISS. Veja o caimento no Provador 3D antes de comprar. Frete grátis acima de R$ 299.",
+    "Camisetas oversized de algodão pesado, jerseys, flanelas, calças cargo, tênis de skate e alfaiataria da KIM & KRIS. Veja o caimento no Provador 3D antes de comprar. Frete grátis acima de R$ 299.",
   alternates: { canonical: "/" },
   openGraph: openGraph({
     url: "/",
-    title: `${SITE.name}® — Streetwear e skate de São Paulo`,
+    title: `${SITE.name} — Streetwear e skate de São Paulo`,
     description: "Coleções Arquibancada, Rolê (skate), Social Club e Y2K Drop. Monte o look no Provador 3D e veja o caimento antes de comprar.",
   }),
 };
@@ -35,11 +35,11 @@ const LOOKS: { image: string; slug: string }[] = [
 ];
 
 const DETAILS: (Omit<DetailCard, "href"> & { slug: string })[] = [
-  { image: "detalhe-01", slug: "jaqueta-varsity-bordo-creme", title: "KK em chenille", text: "Monograma em chenille, mangas em PU e forro matelassê.", alt: "Mãos fechando a jaqueta varsity bordô com o monograma KK em chenille no peito" },
+  { image: "detalhe-01", slug: "jaqueta-varsity-bordo-creme", title: "SP em chenille", text: "Letras em chenille, mangas em PU e forro matelassê.", alt: "Mãos fechando a jaqueta varsity bordô com o SP em chenille no peito" },
   { image: "detalhe-02", slug: "camisa-baseball-pinstripe-preta", title: "Riscas de giz", text: "Script bordado, o 16 em appliqué e viés contrastante.", alt: "Detalhe da camisa de baseball preta riscada com o número 16 na arquibancada" },
   { image: "detalhe-03", slug: "saia-midi-cetim-champagne", title: "Cetim em movimento", text: "Midi enviesada em cetim, com cós elástico embutido.", alt: "Saia midi de cetim champagne em movimento sobre calçada de pedra portuguesa" },
   { image: "detalhe-04", slug: "camisa-basquete-mesh-23-vermelha", title: "Mesh que respira", text: "Mesh 100% poliéster com viés duplo branco e preto.", alt: "Close do tecido mesh vermelho da camisa de basquete 23 na quadra" },
-  { image: "detalhe-05", slug: "bone-dad-hat-kim-kriss-preto", title: "Script bordado", text: "Sarja de algodão lavada e Kim Kriss bordado em script.", alt: "Boné dad hat preto com Kim Kriss bordado em script" },
+  { image: "detalhe-05", slug: "bone-dad-hat-domingo-preto", title: "Script bordado", text: "Sarja de algodão lavada e Domingo bordado em script.", alt: "Boné dad hat preto com Domingo bordado em script" },
   { image: "detalhe-06", slug: "tenis-court-low-branco", title: "Feito para a quadra", text: "Couro e camurça sobre sola de borracha vulcanizada.", alt: "Tênis Court Low branco e calça de moletom cinza sobre o asfalto da quadra" },
 ];
 
@@ -104,7 +104,7 @@ export default async function HomePage() {
         id="y2k-titulo"
         layout="split"
         image="banner-y2k-drop"
-        alt="Editorial Y2K Drop: modelo com baby tee rosa KIM KRISS e saia jeans cintura baixa sentada numa poltrona inflável azul ao lado de uma TV de tubo"
+        alt="Editorial Y2K Drop: modelo com baby tee rosa Y2K e saia jeans cintura baixa sentada numa poltrona inflável azul ao lado de uma TV de tubo"
         kicker={
           <span className="inline-flex items-center gap-2">
             <span aria-hidden="true" className="size-2 bg-y2k-magenta" />
@@ -119,10 +119,10 @@ export default async function HomePage() {
       <EditorialBanner
         id="role-titulo"
         image="banner-skate"
-        alt="Editorial Rolê: skatista com flanela xadrez, camiseta Kim Kriss Skate Co. e calça cargo oliva pisando no tail do skate Kim Kriss, ao lado de um amigo de jaqueta workwear e gorro sentado na borda de granito de uma praça de skate no centro de São Paulo"
+        alt="Editorial Rolê: skatista com flanela xadrez, camiseta Skate Club e calça cargo oliva pisando no tail do skate São Paulo, ao lado de um amigo de jaqueta workwear e gorro sentado na borda de granito de uma praça de skate no centro de São Paulo"
         kicker="Nova linha · skate"
         title="Rolê"
-        text={"Flanela, cargo, workwear e tênis vulcanizado: roupa que aguenta a pista e fica bem na rua. Com skate completo Kim Kriss 8,25\"."}
+        text={"Flanela, cargo, workwear e tênis vulcanizado: roupa que aguenta a pista e fica bem na rua. Com skate completo São Paulo 8,25\"."}
         cta={{ href: "/novidades?colecao=role", label: "Ver a linha Rolê" }}
         imgClassName="object-[62%_50%] md:object-center"
       />

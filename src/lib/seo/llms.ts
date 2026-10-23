@@ -42,11 +42,11 @@ function priceLine(p: Product) {
 
 function header(generatedAt: string) {
   return [
-    `# ${SITE.name}®`,
+    `# ${SITE.name}`,
     "",
     `> ${SITE.description}`,
     "",
-    `- Loja de demonstração: ${SITE.name}® é uma marca fictícia de streetwear esportivo de ${SITE.city}. Os produtos, avaliações e pedidos são de exemplo e o pagamento é simulado (nenhum valor é cobrado).`,
+    `- Loja de demonstração: ${SITE.name} é uma loja (distribuidora) de streetwear desde ${SITE.foundingYear}; as peças não levam o nome da loja. Os produtos, avaliações e pedidos são de exemplo e o pagamento é simulado (nenhum valor é cobrado).`,
     `- Idioma: português do Brasil. Moeda: real (BRL). Preços e estoque gerados a partir do catálogo em ${generatedAt}.`,
     `- Site: ${absoluteUrl("/")} · Contato: ${SITE.email}`,
     "",

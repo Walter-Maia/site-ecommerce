@@ -6,9 +6,9 @@ import type { RawParams } from "@/components/loja/listing/query";
 export const metadata: Metadata = {
   title: "Feminino: baby tees, saias, vestidos e alfaiataria",
   description:
-    "Baby tees, saias jeans e de cetim, vestidos, tops canelados e alfaiataria wide leg da KIM KRISS, além das peças unissex. Frete grátis acima de R$ 299.",
+    "Baby tees, saias jeans e de cetim, vestidos, tops canelados e alfaiataria wide leg da KIM & KRIS, além das peças unissex. Frete grátis acima de R$ 299.",
   alternates: { canonical: "/feminino" },
-  openGraph: openGraph({ url: "/feminino", title: "Feminino | KIM KRISS®", description: "Baby tees, saias, vestidos, tops canelados e alfaiataria wide leg." }),
+  openGraph: openGraph({ url: "/feminino", title: "Feminino | KIM & KRIS", description: "Baby tees, saias, vestidos, tops canelados e alfaiataria wide leg." }),
 };
 
 export default async function FemininoPage({ searchParams }: { searchParams: Promise<RawParams> }) {

@@ -9,7 +9,10 @@ import { useStore } from "./StoreProvider";
 
 /** Página /carrinho: mesma fonte de verdade do drawer (StoreProvider). */
 export function CartPageView() {
-  const { cart } = useStore();
+  const { cart, cartReady } = useStore();
+
+  // Demo estática: o HTML do build não conhece a sacola do visitante (localStorage); evita piscar "vazia".
+  if (!cartReady) return <p className="border-t border-line py-16 text-ink-2">Carregando a sacola…</p>;
 
   if (cart.lines.length === 0) {
     return (

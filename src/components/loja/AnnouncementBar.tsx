@@ -2,7 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ANNOUNCEMENTS } from "@/data/site";
+import { STATIC_DEMO } from "@/lib/static-demo";
 import { IconPause, IconPlay } from "./icons";
+
+/** Na demo estática (GitHub Pages), um aviso honesto entra no letreiro. */
+const NOTICES: readonly string[] = STATIC_DEMO ? [...ANNOUNCEMENTS, "Demo estática: sacola e pedidos ficam só neste navegador"] : ANNOUNCEMENTS;
 
 /** Letreiro contínuo; pausa no hover, no foco e pelo botão (WCAG 2.2.2). */
 export function AnnouncementBar() {
@@ -17,7 +21,7 @@ export function AnnouncementBar() {
     io.observe(el);
     return () => io.disconnect();
   }, []);
-  const items = [...ANNOUNCEMENTS, ...ANNOUNCEMENTS];
+  const items = [...NOTICES, ...NOTICES];
   return (
     <div
       ref={root}
@@ -27,7 +31,7 @@ export function AnnouncementBar() {
       aria-label="Avisos da loja"
     >
       <ul className="sr-only">
-        {ANNOUNCEMENTS.map((a) => (
+        {NOTICES.map((a) => (
           <li key={a}>{a}</li>
         ))}
       </ul>

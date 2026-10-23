@@ -3,13 +3,17 @@
 import { createContext, use, useCallback, useEffect, useMemo, useOptimistic, useState, useTransition } from "react";
 import { addToCart, removeCartLine, updateCartLine } from "@/server/actions/cart";
 import { toggleWishlist } from "@/server/actions/wishlist";
+import { STATIC_DEMO } from "@/lib/static-demo";
 import type { CartView, Size } from "@/lib/types";
+import { isDemoStorageKey, readCartView, readWishlist, STATIC_SYNC_EVENT } from "@/static/client/storage";
 
 type Panel = "cart" | "menu" | "search" | null;
 
 interface StoreCtx {
   cart: CartView;
   cartPending: boolean;
+  /** Sacola já reflete o visitante. Sempre true no servidor; na demo estática, só após ler o localStorage. */
+  cartReady: boolean;
   liked: ReadonlySet<string>;
   panel: Panel;
   openPanel: (p: Exclude<Panel, null>) => void;
@@ -68,6 +72,7 @@ export function StoreProvider({
   }
 
   const [panel, setPanel] = useState<Panel>(null);
+  const [cartReady, setCartReady] = useState(!STATIC_DEMO);
   const [cartPending, startCart] = useTransition();
   const [optimisticCart, applyOptimistic] = useOptimistic(cart, applyOp);
   const [optimisticLiked, flipLiked] = useOptimistic(liked, (set: ReadonlySet<string>, id: string) => {
@@ -85,6 +90,27 @@ export function StoreProvider({
     };
     window.addEventListener(CART_EVENT, onExternal);
     return () => window.removeEventListener(CART_EVENT, onExternal);
+  }, []);
+
+  // Demo estática (GitHub Pages): o HTML vem do build com sacola/curtidas vazias; a fonte
+  // de verdade é o localStorage deste navegador (inclusive mudanças feitas em outra aba).
+  useEffect(() => {
+    if (!STATIC_DEMO) return;
+    const sync = () => {
+      setCart(readCartView());
+      setLiked(new Set(readWishlist()));
+      setCartReady(true);
+    };
+    const onStorage = (e: StorageEvent) => {
+      if (isDemoStorageKey(e.key)) sync();
+    };
+    sync();
+    window.addEventListener(STATIC_SYNC_EVENT, sync);
+    window.addEventListener("storage", onStorage);
+    return () => {
+      window.removeEventListener(STATIC_SYNC_EVENT, sync);
+      window.removeEventListener("storage", onStorage);
+    };
   }, []);
 
   const add = useCallback(async (productId: string, size: Size, quantity = 1) => {
@@ -128,6 +154,7 @@ export function StoreProvider({
     () => ({
       cart: optimisticCart,
       cartPending,
+      cartReady,
       liked: optimisticLiked,
       panel,
       openPanel: setPanel,
@@ -138,7 +165,7 @@ export function StoreProvider({
       toggleLike,
       syncCart: setCart,
     }),
-    [optimisticCart, cartPending, optimisticLiked, panel, add, setQuantity, remove, toggleLike],
+    [optimisticCart, cartPending, cartReady, optimisticLiked, panel, add, setQuantity, remove, toggleLike],
   );
 
   return <Ctx value={value}>{children}</Ctx>;

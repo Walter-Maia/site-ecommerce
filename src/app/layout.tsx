@@ -12,7 +12,7 @@ const lcd = VT323({ variable: "--font-lcd", weight: "400", subsets: ["latin"], d
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: `${SITE.name}® — ${SITE.tagline}`, template: `%s | ${SITE.name}®` },
+  title: { default: `${SITE.name} — ${SITE.tagline}`, template: `%s | ${SITE.name}` },
   description: SITE.description,
   applicationName: SITE.name,
   openGraph: openGraph(),

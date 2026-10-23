@@ -1,4 +1,5 @@
 import type { Category, CategorySlug, Gender, Product, ProductSort, Size } from "@/lib/types";
+import type { Crumb } from "../Breadcrumbs";
 import { COLLECTIONS, PRICE_RANGES, SIZE_ORDER, SORTS } from "../constants";
 
 export type RawParams = Record<string, string | string[] | undefined>;
@@ -36,7 +37,7 @@ export function parseFilters(raw: RawParams, categories: Category[], defaultSort
 export const collectionName = (slug?: string) => COLLECTIONS.find((c) => c.slug === slug)?.name;
 
 /** Filtros que o contrato não cobre (coleção, tamanho com estoque, faixa de preço). */
-export function applyLocalFilters(items: Product[], f: ListingFilters): Product[] {
+export function applyLocalFilters<P extends Pick<Product, "collection" | "price" | "sizes">>(items: P[], f: ListingFilters): P[] {
   const range = PRICE_RANGES.find((p) => p.value === f.preco);
   const colName = collectionName(f.colecao);
   return items.filter((p) => {
@@ -48,7 +49,7 @@ export function applyLocalFilters(items: Product[], f: ListingFilters): Product[
 }
 
 /** Tamanhos presentes num conjunto de produtos, na ordem da grade. */
-export function availableSizes(items: Product[]): Size[] {
+export function availableSizes(items: Pick<Product, "sizes">[]): Size[] {
   const present = new Set(items.flatMap((p) => p.sizes.map((s) => s.size)));
   return SIZE_ORDER.filter((s) => present.has(s)) as Size[];
 }
@@ -70,4 +71,32 @@ export function hrefWith(basePath: string, f: ListingFilters, patch: Partial<Rec
   }
   const s = qs.toString();
   return s ? `${basePath}?${s}` : basePath;
+}
+
+/** Facetas que cada listagem oferece (ex.: /novidades tem categoria e coleção). */
+export interface ListingFacets {
+  categories?: boolean;
+  gender?: boolean;
+  collection?: boolean;
+}
+
+/** Chips de "Filtros ativos", cada um com o link que o remove. */
+export function activeFilters(basePath: string, f: ListingFilters, facets: ListingFacets, categories: Category[], defaultSort: ProductSort) {
+  const active: { label: string; href: string }[] = [];
+  if (facets.categories && f.categoria) active.push({ label: categories.find((c) => c.slug === f.categoria)!.name, href: hrefWith(basePath, f, { categoria: undefined }, defaultSort) });
+  if (facets.collection && f.colecao) active.push({ label: collectionName(f.colecao)!, href: hrefWith(basePath, f, { colecao: undefined }, defaultSort) });
+  if (facets.gender && f.genero) active.push({ label: f.genero === "feminino" ? "Feminino" : "Masculino", href: hrefWith(basePath, f, { genero: undefined }, defaultSort) });
+  for (const s of f.tamanho) active.push({ label: `Tamanho ${s}`, href: hrefWith(basePath, f, { tamanho: f.tamanho.filter((x) => x !== s) }, defaultSort) });
+  if (f.preco) active.push({ label: PRICE_RANGES.find((p) => p.value === f.preco)!.label, href: hrefWith(basePath, f, { preco: undefined }, defaultSort) });
+  return active;
+}
+
+/** Com coleção escolhida, a página assume o nome da coleção (título e trilha). */
+export function listingHeading(title: string, crumbs: Crumb[], basePath: string, f: ListingFilters, facets: ListingFacets) {
+  const colName = facets.collection ? collectionName(f.colecao) : undefined;
+  return {
+    colName,
+    heading: colName ?? title,
+    trail: colName ? [...crumbs, { name: colName, path: `${basePath}?colecao=${f.colecao}` }] : crumbs,
+  };
 }

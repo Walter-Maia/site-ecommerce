@@ -1,6 +1,6 @@
-# KIM KRISS® — e-commerce de demonstração com Provador 3D
+# KIM & KRIS — e-commerce de demonstração com Provador 3D
 
-Loja de streetwear e skate de **demonstração** (pessoas, avaliações e pagamentos são simulados; 40 produtos com a linha de skate Rolê). Visual editorial inspirado em lojas de streetwear premium e, como diferencial, o **Provador 3D "SELECT YOUR FIT"**: manequins low-poly estilo PS2 em que o cliente ajusta altura e peso, troca pele, cabelo e estilo (formal/informal), veste as peças que curtiu, vê o caimento de cada tamanho e compra o look inteiro.
+Site da **KIM & KRIS**, loja (distribuidora) de streetwear desde 1999. O nome e o selo identificam a loja; **as peças à venda não levam o nome nem o logo da loja** (estampas genéricas de streetwear). Catálogo de demonstração com 40 produtos, incluindo a linha de skate Rolê; pessoas, avaliações e pagamentos são simulados. Visual editorial inspirado em lojas de streetwear premium e, como diferencial, o **Provador 3D "SELECT YOUR FIT"**: manequins low-poly estilo PS2 em que o cliente ajusta altura e peso, troca pele, cabelo e estilo (formal/informal), veste as peças que curtiu, vê o caimento de cada tamanho e compra o look inteiro.
 
 ## Rodar
 
@@ -23,7 +23,7 @@ npm run build && npm start
 | `npm run db:reset` | recria o banco (pare o `npm run dev` antes: o Windows trava o arquivo) |
 | `npm run db:seed -- --reset-admin-password` | gera nova senha de admin e derruba as sessões |
 
-**Admin:** `/admin`, usuário `admin@kimkriss.test`. A senha é gerada no seed e fica **só** em `.env.local` (`ADMIN_SEED_PASSWORD`), que não vai para o git.
+**Admin:** `/admin`, usuário `admin@kimekris.test`. A senha é gerada no seed e fica **só** em `.env.local` (`ADMIN_SEED_PASSWORD`), que não vai para o git.
 
 ## O que tem
 
@@ -31,6 +31,25 @@ npm run build && npm start
 - **Provador 3D** (`/provador`, também como teaser na home): curtidas, busca por nome, looks prontos e salvos, sliders de altura (145–205 cm) e peso (40–150 kg) com medidas estimadas, tamanho recomendado e caimento real de cada peça; pele, cabelo (9 estilos), formal/informal; girar 360°, frente/costas, tela cheia; salvar e comprar o look.
 - **Admin**: painel, produtos (preço, estoque por tamanho, destaque), **manequins** (quantos quiser, de cada corpo, pele, cabelo e estilo, com pré-visualização 3D ao vivo), pedidos; tudo auditado.
 - **Conta**: cadastro, login, pedidos, looks salvos.
+
+## Demo estática (GitHub Pages)
+
+https://walter-maia.github.io/site-ecommerce/ — publicada pelo workflow `.github/workflows/pages.yml` a cada push na `main` (em Settings → Pages, a origem precisa ser "GitHub Actions").
+
+```bash
+npm run build:pages    # gera ./out (basePath /site-ecommerce)
+npm run serve:pages    # serve ./out em http://localhost:4173/site-ecommerce/
+node scripts/qa/pages-e2e.mjs [baseUrl] [pastaDeCapturas]   # teste ponta a ponta da demo
+```
+
+O `build:pages` (`scripts/build-pages.mjs`) monta uma cópia temporária do projeto em `.pages-build/` sem as rotas que exigem servidor, troca os módulos `@/server/*` pelas versões de `src/static/server/**` e roda `next build` com `output: "export"` (ramo `STATIC_EXPORT=1` do `next.config.ts`). O modo servidor não muda.
+
+O que muda na demo:
+
+- **Sem servidor:** sacola, curtidas, looks salvos e pedidos ficam no `localStorage` do navegador; checkout com pagamento simulado gera o pedido em `/pedido/?id=…`. Filtros das listagens, `/busca`, `?look=` e `?add=` do provador são lidos no cliente (mesmos resultados do SQLite).
+- **Sem login nem admin:** `/entrar`, `/cadastro`, `/conta` e `/admin` são páginas que explicam que isso existe na versão com servidor. `/api` e `/lab` não são publicados.
+- **Catálogo fixo:** preços e estoque vêm de `src/data` (o que o admin edita no SQLite não aparece aqui).
+- **Segurança:** o Pages não envia cabeçalhos. A CSP vai numa `<meta http-equiv>` com o **hash sha256 de cada script inline** da página (no lugar do nonce por requisição, impossível em HTML estático); `frame-ancestors`, `X-Frame-Options`, HSTS e os demais cabeçalhos de `next.config.ts` não se aplicam.
 
 ## Documentação
 

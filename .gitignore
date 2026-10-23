@@ -46,3 +46,6 @@ next-env.d.ts
 # segredos locais (gerados por `npm run db:seed`); só o exemplo vai para o git
 .env*.local
 !.env.example
+
+# demo estática (GitHub Pages): cópia temporária do build e saída (`npm run build:pages`)
+/.pages-build/

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // cópia temporária do build da demo estática (scripts/build-pages.mjs --keep)
+    ".pages-build/**",
   ]),
 ]);
 

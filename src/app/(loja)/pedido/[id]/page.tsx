@@ -12,7 +12,7 @@ type Props = { params: Promise<{ id: string }> };
 
 export const metadata: Metadata = {
   title: "Pedido confirmado",
-  description: "Resumo do seu pedido na KIM KRISS.",
+  description: "Resumo do seu pedido na KIM & KRIS.",
   robots: { index: false, follow: false },
 };
 

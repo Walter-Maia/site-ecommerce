@@ -1,20 +1,23 @@
 import type { Category } from "@/lib/types";
 
 /**
- * Configuração da marca fictícia. Trocar nome/URL aqui propaga para
- * header, footer, metadados, JSON-LD, sitemap e llms.txt.
+ * Configuração da loja. KIM & KRIS é uma DISTRIBUIDORA de streetwear: o nome e o
+ * selo identificam a loja, não as peças (nenhuma roupa leva o nome da loja).
+ * Trocar nome/URL aqui propaga para header, footer, metadados, JSON-LD, sitemap e llms.txt.
  */
 export const SITE = {
-  name: "KIM KRISS",
-  legalName: "Kim Kriss Streetwear (loja de demonstração)",
-  tagline: "Streetwear e skate de São Paulo",
+  name: "KIM & KRIS",
+  legalName: "Kim & Kris Streetwear",
+  tagline: "Loja de streetwear desde 1999",
   description:
-    "KIM KRISS é streetwear e skate de São Paulo: camisetas oversized, jerseys, moletons, flanelas, calças cargo, tênis de skate e alfaiataria. Monte looks no Provador 3D, ajuste altura e peso e veja o caimento antes de comprar.",
+    "KIM & KRIS é uma loja de streetwear desde 1999: camisetas oversized, jerseys, moletons, flanelas, calças cargo, tênis de skate e alfaiataria. Monte looks no Provador 3D, ajuste altura e peso e veja o caimento antes de comprar.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "pt_BR",
-  foundingYear: 2016,
-  city: "São Paulo",
-  email: "atendimento@kimkriss.test",
+  foundingYear: 1999,
+  /** Cidade da loja: vazio enquanto não for confirmada (não inventar endereço de empresa real). */
+  city: "",
+  logo: "/images/brand/kim-e-kris-selo-512.webp",
+  email: "atendimento@kimekris.test",
   instagram: "https://www.instagram.com/",
   currency: "BRL",
 } as const;
@@ -45,7 +48,7 @@ export const CATEGORIES: Category[] = [
   { slug: "calcas", name: "Calças", description: "Calças de moletom wide, jeans baggy e alfaiataria." },
   { slug: "saias", name: "Saias", description: "Saias jeans cintura baixa e midi de cetim." },
   { slug: "vestidos", name: "Vestidos", description: "Vestido jersey oversized e slip dress de cetim." },
-  { slug: "bones", name: "Bonés e gorros", description: "Dad hats, five panels e gorros canelados com bordado KK." },
+  { slug: "bones", name: "Bonés e gorros", description: "Dad hats, five panels e gorros canelados." },
   { slug: "calcados", name: "Calçados", description: "Tênis de quadra, tênis de skate vulcanizados e mocassins de couro." },
   { slug: "skate", name: "Skate", description: "Skates completos com shape de maple 8,25\" e peças da linha Rolê." },
 ];
@@ -80,7 +83,7 @@ export const NAV = {
  * no FAQPage JSON-LD e no llms.txt. Respostas autocontidas, sem "clique aqui".
  */
 export const FAQ: { id: string; q: string; a: string }[] = [
-  { id: "provador", q: "Como funciona o Provador 3D da KIM KRISS?", a: "Você escolhe um manequim, informa altura e peso, e veste as peças que curtiu. O provador recalcula o corpo e mostra o caimento de cada tamanho (justo, regular ou largo) antes de você comprar. Dá para trocar tom de pele, cabelo e o estilo do manequim (formal ou informal) e salvar o look para comprar tudo de uma vez." },
+  { id: "provador", q: "Como funciona o Provador 3D da KIM & KRIS?", a: "Você escolhe um manequim, informa altura e peso, e veste as peças que curtiu. O provador recalcula o corpo e mostra o caimento de cada tamanho (justo, regular ou largo) antes de você comprar. Dá para trocar tom de pele, cabelo e o estilo do manequim (formal ou informal) e salvar o look para comprar tudo de uma vez." },
   { id: "medidas", q: "Como escolher meu tamanho?", a: "Compare a tabela de medidas da peça com uma roupa que você já usa, ou use o Provador 3D com sua altura e peso: ele indica o tamanho recomendado e mostra como cada tamanho veste no corpo." },
   { id: "frete", q: "Qual o prazo e o valor do frete?", a: "O frete é grátis acima de R$ 299. Abaixo disso, a taxa é fixa de R$ 24,90 para todo o Brasil, com código de rastreio enviado por e-mail." },
   { id: "trocas", q: "Como faço uma troca ou devolução?", a: "Você tem 30 dias após o recebimento para trocar ou devolver peças sem uso e com etiqueta. A primeira troca é gratuita." },

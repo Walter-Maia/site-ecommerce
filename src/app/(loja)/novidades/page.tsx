@@ -6,12 +6,12 @@ import type { RawParams } from "@/components/loja/listing/query";
 export const metadata: Metadata = {
   title: "Novidades: lançamentos e coleções de streetwear",
   description:
-    "Tudo o que acabou de chegar na KIM KRISS: drops Arquibancada, Social Club, Y2K Drop e Inverno 26. Filtre por categoria, tamanho e preço.",
+    "Tudo o que acabou de chegar na KIM & KRIS: drops Arquibancada, Social Club, Y2K Drop e Inverno 26. Filtre por categoria, tamanho e preço.",
   alternates: { canonical: "/novidades" },
   openGraph: openGraph({
     url: "/novidades",
-    title: "Novidades | KIM KRISS®",
-    description: "Os lançamentos da KIM KRISS: drops Arquibancada, Social Club, Y2K Drop e Inverno 26.",
+    title: "Novidades | KIM & KRIS",
+    description: "Os lançamentos da KIM & KRIS: drops Arquibancada, Social Club, Y2K Drop e Inverno 26.",
   }),
 };
 

@@ -6,7 +6,7 @@ import { getCurrentUser } from "@/server/session";
 
 export const metadata: Metadata = {
   title: "Criar conta",
-  description: "Crie sua conta KIM KRISS® para salvar looks do Provador 3D e acompanhar pedidos.",
+  description: "Crie sua conta KIM & KRIS para salvar looks do Provador 3D e acompanhar pedidos.",
   robots: { index: false, follow: false },
 };
 

@@ -13,7 +13,7 @@ import { CATEGORIES, NAV, SITE } from "@/data/site";
  */
 export const metadata: Metadata = {
   title: "Página não encontrada",
-  description: "Essa página não existe. Busque uma peça ou volte para as novidades da KIM KRISS.",
+  description: "Essa página não existe. Busque uma peça ou volte para as novidades da KIM & KRIS.",
 };
 
 export default function NotFound() {
@@ -24,8 +24,8 @@ export default function NotFound() {
       </a>
       <header className="border-b border-line">
         <div className="gutter flex h-16 items-center justify-between gap-4">
-          <Link href="/" aria-label={`${SITE.name}®, voltar para a página inicial`} className="inline-flex min-h-11 items-center">
-            <Logo title="" className="h-6 w-auto" />
+          <Link href="/" aria-label={`${SITE.name}, voltar para a página inicial`} className="inline-flex min-h-11 items-center">
+            <Logo title="" className="size-11" />
           </Link>
           <nav aria-label="Principal">
             <ul className="flex items-center gap-1 text-sm">
@@ -119,7 +119,7 @@ export default function NotFound() {
 
       <footer className="border-t border-line">
         <p className="gutter py-6 text-xs text-mute">
-          {SITE.name}® é uma marca fictícia de demonstração. Nenhum pagamento é cobrado.
+          {SITE.name} — loja de demonstração. Nenhum pagamento é cobrado.
         </p>
       </footer>
     </div>

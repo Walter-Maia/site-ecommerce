@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Logo } from "@/components/loja/Logo";
 import { AdminNav } from "@/components/admin/AdminNav";
 import { logoutAction } from "@/server/actions/auth";
 import { requireAdmin } from "@/server/session";
 
 export const metadata: Metadata = {
-  title: { default: "Painel", template: "%s · Admin KIM KRISS®" },
+  title: { default: "Painel", template: "%s · Admin KIM & KRIS" },
   robots: { index: false, follow: false, nocache: true },
 };
 
@@ -23,8 +24,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       </a>
       <aside className="border-b border-line bg-paper lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:border-b-0 lg:border-r">
         <div className="flex h-16 items-center justify-between gap-3 px-6">
-          <Link href="/admin" className="text-lg font-extrabold italic tracking-tight">
-            KIM KRISS® <span className="t-label ml-1 not-italic text-mute">admin</span>
+          <Link href="/admin" className="inline-flex items-center gap-2.5 text-lg font-extrabold italic tracking-tight">
+            <Logo title="" className="size-9" />
+            KIM & KRIS <span className="t-label ml-1 not-italic text-mute">admin</span>
           </Link>
           <Link href="/" className="t-label text-mute hover:text-ink lg:hidden">
             Loja

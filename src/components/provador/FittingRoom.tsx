@@ -6,7 +6,9 @@ import { computeFit, estimateMeasurements, lookFitScore, recommendSize } from "@
 import { FIT_LABEL_UI, sortByLayer } from "@/lib/provador/outfit";
 import { CART_EVENT } from "@/components/loja/StoreProvider";
 import { SITE } from "@/data/site";
+import { STATIC_DEMO } from "@/lib/static-demo";
 import type { ActionResult, CartView, GarmentSlot, LookBodySettings, SavedLook } from "@/lib/types";
+import { staticProvadorBoot } from "@/static/client/provador";
 import { addLookToCart } from "@/server/actions/cart";
 import { saveLook } from "@/server/actions/looks";
 import { toggleWishlist } from "@/server/actions/wishlist";
@@ -143,10 +145,23 @@ export default function FittingRoom({ data, initialLookId, initialAddSlug }: Pro
   useEffect(() => {
     if (didHydrateRef.current) return;
     didHydrateRef.current = true;
-    const persisted = parsePersisted(readPersisted(), data);
-    if (persisted) dispatch({ type: "hydrate", state: resolveState(persisted, data, byId, initialLookId, initialAddSlug) });
+    let base = data;
+    let lookId = initialLookId;
+    let addSlug = initialAddSlug;
+    if (STATIC_DEMO) {
+      // Demo estática: curtidas, looks salvos, ?look= e ?add= vêm do navegador (o HTML é do build).
+      ({ data: base, lookId, addSlug } = staticProvadorBoot(data));
+      // Hidratação única a partir de um sistema externo (localStorage), como o "hydrate" abaixo.
+      /* eslint-disable react-hooks/set-state-in-effect */
+      setLooks(base.looks);
+      setWish(new Set(base.wishlist));
+      /* eslint-enable react-hooks/set-state-in-effect */
+    }
+    const persisted = parsePersisted(readPersisted(), base);
+    if (persisted) dispatch({ type: "hydrate", state: resolveState(persisted, base, byId, lookId, addSlug) });
+    else if (STATIC_DEMO && (lookId || addSlug)) dispatch({ type: "hydrate", state: resolveState(null, base, byId, lookId, addSlug) });
     readyRef.current = true;
-    if (initialLookId || initialAddSlug) {
+    if (lookId || addSlug) {
       // Recarregar a página não deve reaplicar ?look/?add por cima do look em andamento.
       try {
         const url = new URL(window.location.href);

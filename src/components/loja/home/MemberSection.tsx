@@ -25,7 +25,7 @@ export function MemberSection() {
       <CourtLines className="absolute inset-0 -z-10 h-full w-full text-white/35" />
       <div className="gutter grid gap-10 py-20 md:grid-cols-12 md:items-end md:py-28">
         <div className="md:col-span-7">
-          <p className="mb-4 text-sm text-white">Clube KIM KRISS</p>
+          <p className="mb-4 text-sm text-white">Clube KIM & KRIS</p>
           <h2 id="membro-titulo" className="t-display text-[clamp(3.4rem,10vw,9rem)]" data-reveal="lines">
             <span className="rl">
               <span>Seja membro</span>

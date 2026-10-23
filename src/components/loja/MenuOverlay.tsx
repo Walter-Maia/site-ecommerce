@@ -22,8 +22,8 @@ export function MenuOverlay({ categories, image }: { categories: Category[]; ima
         <h2 id="menu-titulo" className="sr-only">
           Menu
         </h2>
-        <Link href="/" onClick={close} aria-label="KIM KRISS — página inicial" className="px-2 py-2">
-          <Logo title="" className="h-6 w-auto md:h-7" />
+        <Link href="/" onClick={close} aria-label={`${SITE.name} — página inicial`} className="px-2 py-1.5">
+          <Logo title="" className="size-12" />
         </Link>
         <span className="w-11" />
       </div>
@@ -83,7 +83,7 @@ export function MenuOverlay({ categories, image }: { categories: Category[]; ima
             <>
               <Image src={image} alt="" fill sizes="40vw" className="object-cover" />
               <p className="absolute bottom-8 left-8 right-8 font-serif text-3xl leading-tight text-white drop-shadow-[0_1px_12px_rgb(0_0_0/0.35)]">
-                Feito em São Paulo,
+                Streetwear desde 1999,
                 <br />
                 para a quadra e para a rua.
               </p>

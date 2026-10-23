@@ -1,4 +1,4 @@
-# KIM KRISS® — arquitetura do e-commerce de demonstração
+# KIM & KRIS — arquitetura do e-commerce de demonstração
 
 Marca **fictícia** de streetwear esportivo paulistano. Visual da loja inspirado no padrão editorial de lojas de streetwear premium (fundo claro, fotos sangradas, serifa nos títulos, carrosséis com barra de progresso), **sem copiar marca, logo ou textos de terceiros**. Diferencial: **Provador 3D** em estética Y2K/PS2 ("SELECT YOUR FIT"), com manequins configuráveis.
 
@@ -25,7 +25,7 @@ Cada agente só edita a própria área. Mudanças em contratos compartilhados pa
 |---|---|
 | `src/lib/types.ts`, `src/data/**`, `src/lib/format.ts`, `src/lib/seo/jsonld.tsx`, `docs/ARQUITETURA.md` | Arquiteto (contratos) |
 | `src/server/**` (inclui `actions/`), `src/proxy.ts`, `src/app/api/**`, `scripts/**`, `next.config.ts` (headers), `.env.example`, `src/app/(conta)/**` (entrar, cadastro, conta), `src/app/admin/**`, `src/components/admin/**`, testes de servidor | **Backend & Segurança** |
-| `src/app/(loja)/**` exceto `provador/`, `src/components/loja/**`, `src/app/globals.css` (pode estender), `public/icon.svg` | **Loja (UI)** |
+| `src/app/(loja)/**` exceto `provador/`, `src/components/loja/**`, `src/app/globals.css` (pode estender), `src/components/loja/Logo.tsx` (selo em `public/images/brand/`) | **Loja (UI)** |
 | `src/app/(loja)/provador/**`, `src/components/provador/**`, `src/lib/provador/**` | **Provador 3D** |
 | `src/app/sitemap.ts`, `robots.ts`, `manifest.ts`, ícones, `not-found.tsx`, `src/app/llms.txt/route.ts` e `llms-full.txt/route.ts`, `src/lib/seo/{metadata,llms}.ts` | **SEO/AEO** (fase 2) |
 | `public/images/**` (fotos geradas no Higgsfield) | Arquiteto |

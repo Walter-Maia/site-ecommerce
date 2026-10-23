@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
+import { pagePath, withBasePath } from "@/lib/static-demo";
 import { POPULAR_SEARCHES } from "./constants";
 import { Sheet } from "./Sheet";
 import { IconClose, IconSearch } from "./icons";
@@ -18,7 +19,7 @@ export function SearchOverlay() {
     <Sheet open={open} onClose={closePanel} side="top" labelledBy="busca-titulo" panelClassName="pb-8 md:pb-12">
       <div className="gutter flex h-(--header-h) items-center justify-between">
         <h2 id="busca-titulo" className="t-label text-mute">
-          Buscar na KIM KRISS
+          Buscar na KIM & KRIS
         </h2>
         <button type="button" className="icon-btn -mr-2.5" onClick={closePanel} aria-label="Fechar busca">
           <IconClose />
@@ -26,7 +27,7 @@ export function SearchOverlay() {
       </div>
       <div className="gutter mx-auto w-full max-w-5xl">
         <form
-          action="/busca"
+          action={withBasePath(pagePath("/busca"))} // form cru (sem JS): basePath à mão na demo estática; no-op no servidor
           method="get"
           role="search"
           onSubmit={(e) => {

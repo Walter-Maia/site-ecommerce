@@ -55,8 +55,8 @@ export function safeNextPath(raw: unknown): string | null {
   if (!raw.startsWith("/") || raw.startsWith("//") || raw.startsWith("/\\")) return null;
   if (/[\u0000-\u001f\\]/.test(raw)) return null;
   try {
-    const url = new URL(raw, "http://kimkriss.local");
-    if (url.origin !== "http://kimkriss.local") return null;
+    const url = new URL(raw, "http://kimekris.local");
+    if (url.origin !== "http://kimekris.local") return null;
     const path = url.pathname + url.search;
     // A normalização de "." e ".." pode gerar "//host" ("/.//evil.com" → "//evil.com"),
     // que o navegador trata como URL de outro site. Checa de novo DEPOIS de normalizar.

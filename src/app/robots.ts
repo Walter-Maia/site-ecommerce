@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/data/site";
+import { withBasePath } from "@/lib/static-demo";
 
 /**
  * Áreas privadas, transacionais e de resultado de busca ficam fora do
@@ -12,8 +13,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/admin", "/conta", "/carrinho", "/checkout", "/pedido", "/api/", "/lab", "/busca"],
+        // withBasePath: no-op no servidor; na demo estática, caminhos sob /site-ecommerce.
+        allow: withBasePath("/"),
+        disallow: ["/admin", "/conta", "/carrinho", "/checkout", "/pedido", "/api/", "/lab", "/busca"].map(withBasePath),
       },
     ],
     sitemap: `${base}/sitemap.xml`,

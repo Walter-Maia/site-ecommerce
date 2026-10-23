@@ -359,7 +359,7 @@ export function graphicTexture(g: Graphic, layout: "wide" | "stack" | "number" |
       const text = g.style === "block" || g.style === "varsity" ? g.text.toUpperCase() : g.text;
       const words = text.split(" ");
       if (layout === "wide" && text.length > 13 && words.length > 1) {
-        // texto longo: duas linhas equilibradas (ex.: "KIM KRISS / SKATE CO.")
+        // texto longo: duas linhas equilibradas (ex.: "KIM & KRIS / SKATE CO.")
         let best = 1;
         let bestD = Infinity;
         for (let i = 1; i < words.length; i++) {

@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/produto/${p.slug}` },
     openGraph: openGraph({
       url: `/produto/${p.slug}`,
-      title: `${p.name} | ${SITE.name}®`,
+      title: `${p.name} | ${SITE.name}`,
       description: desc,
       ...(img && imageExists(img.src) ? { images: [{ url: img.src, width: img.width, height: img.height, alt: img.alt }] } : {}),
     }),

@@ -7,7 +7,7 @@ import type { Product } from "@/lib/types";
 import { checkPasswordStrength, hashPasswordSync } from "../auth/password";
 import { newId, normalizeSearch, nowIso } from "../util";
 
-export const ADMIN_EMAIL = "admin@kimkriss.test";
+export const ADMIN_EMAIL = "admin@kimekris.test";
 
 export function productSearchText(p: Pick<Product, "name" | "shortName" | "colorName" | "collection" | "category" | "tags">) {
   const category = CATEGORIES.find((c) => c.slug === p.category)?.name ?? p.category;
@@ -78,7 +78,7 @@ export function ensureAdmin(
   if (!existing) {
     db.prepare(
       "INSERT INTO users (id, name, email, password_hash, role, created_at, updated_at) VALUES (?, ?, ?, ?, 'admin', ?, ?)",
-    ).run(newId(), "Admin KIM KRISS", ADMIN_EMAIL, hashPasswordSync(password), now, now);
+    ).run(newId(), "Admin KIM & KRIS", ADMIN_EMAIL, hashPasswordSync(password), now, now);
     return "created";
   }
   if (opts.resetPassword) {
@@ -99,7 +99,7 @@ export function seedIfEmpty(db: DatabaseSync, opts: { adminPassword?: string }) 
     try {
       ensureAdmin(db, opts.adminPassword);
     } catch (err) {
-      console.error("[kimkriss] admin não semeado:", (err as Error).message);
+      console.error("[kimekris] admin não semeado:", (err as Error).message);
     }
   }
 }

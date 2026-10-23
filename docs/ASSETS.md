@@ -1,4 +1,4 @@
-# Imagens da KIM KRISS (geradas no Higgsfield em 22/10/2026)
+# Imagens da KIM & KRIS (geradas no Higgsfield em 22/10/2026)
 
 Todas as pessoas, roupas e a marca são **fictícias**. Nenhuma imagem usa logo de terceiros (os prompts proíbem logos, e os tênis/meias são lisos).
 
@@ -41,9 +41,17 @@ Conversão: `scripts/assets/fetch-image.mjs` (download HTTPS → sharp → WebP 
 
 Custo total: ≈ 236 créditos (93 imagens + 1 refeita porque o filtro de conteúdo bloqueou a pose original).
 
-## Rebranding QUADRA → KIM KRISS e linha Rolê (22/10/2026, noite)
+## Rebranding QUADRA → KIM & KRIS e linha Rolê (22/10/2026, noite)
 
-- **39 fotos editadas** com o original como `image_references` (`gpt_image_2_5`): o prompt troca só a estampa ("QUADRA" → "KIM KRISS", script "Quadra" → "Kim Kriss", monograma "Q" → "KK") e manda manter peça, pessoa, luz e enquadramento. 15 packshots, 16 fotos vestidas e 8 editoriais.
+- **39 fotos editadas** com o original como `image_references` (`gpt_image_2_5`): o prompt troca só a estampa ("QUADRA" → "KIM & KRIS", script "Quadra" → "Kim & Kris", monograma "Q" → "KK") e manda manter peça, pessoa, luz e enquadramento. 15 packshots, 16 fotos vestidas e 8 editoriais.
 - **Linha Rolê (skate), 12 peças novas** (p29–p40): camiseta boxy Skate Co., manga longa KK, moletom zíper, flanela xadrez, jaqueta workwear, calça cargo, carpinteiro, bermuda cargo, gorro, 2 tênis de skate e skate completo 8,25". Packshot + foto vestida para cada uma, mesma receita do catálogo.
 - **Campanha de skate:** `banner-skate.webp` (16:9) e `banner-skate-mobile.webp` (2:3) numa praça de skate do centro de SP; `categoria-skate.webp` é recorte do banner mobile.
 - Custo desta rodada: ≈ 200 créditos.
+
+## KIM & KRIS: loja, não marca (23/10/2026)
+
+A cliente esclareceu que KIM & KRIS é uma **distribuidora**: o selo é da loja e as roupas não levam o nome dela.
+- **Selo da loja:** a arte de 150 px enviada pela cliente foi redesenhada no Higgsfield (`gpt_image_2_5`, fundo transparente, 2k) mantendo a identidade: anel preto e vermelho, "KIM & KRIS" e "STREETWEAR" nos arcos, skatista vermelho e carimbo "Since 1999". Os arquivos estão em `public/images/brand/`; ícones e favicon derivam dele.
+- **55 fotos reeditadas** com a versão anterior como referência, trocando só a estampa por designs genéricos: ATHLETIC 07, Paulistas (script), ATHLETICS 16, STREETBALL 23, chenille SP, Y2K, Domingo (script), estrela, SKATE CLUB / SÃO PAULO, Downtown (script) e skate SÃO PAULO. Corta-vento, bermudas, calça, oxford, cropped, workwear, gorro e tênis ficaram lisos.
+- Os slugs dos produtos que tinham o nome da loja mudaram (ex.: `camiseta-oversized-athletic-07-preta`).
+- Custo: ≈ 290 créditos nas duas rodadas de troca de marca (KIM KRISS → KIM & KRIS → peças sem marca) e no logo.

@@ -32,5 +32,5 @@ export const COMMON_PASSWORDS = new Set<string>([
   "fernanda", "carolina", "amanda", "camila", "bruna", "beatriz", "larissa",
   // marca / contexto (ataques direcionados)
   "quadra", "quadra123", "quadra1234", "quadra2026", "quadrasp", "streetwear", "provador",
-  "loja123", "lojaquadra", "kimkriss", "kimkriss123", "kimkriss1234", "kimkriss2026", "lojakimkriss",
+  "loja123", "lojaquadra", "kimkriss", "kimkriss123", "kimekris", "kimekris123", "kimekris1999", "kimkris", "lojakimekris",
 ]);

@@ -1,0 +1,55 @@
+# Publica a DEMONSTRAÇÃO ESTÁTICA da loja no GitHub Pages
+# (https://walter-maia.github.io/site-ecommerce/) a cada push na main.
+# O build (`npm run build:pages`) gera ./out a partir de uma cópia temporária do
+# projeto sem as rotas que exigem servidor — ver scripts/build-pages.mjs.
+# Requisito único no repositório: Settings → Pages → Source = "GitHub Actions".
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Um deploy por vez; um push novo não derruba um deploy já em andamento.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - uses: actions/configure-pages@v5
+
+      - name: Build da demo estática
+        run: npm run build:pages
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

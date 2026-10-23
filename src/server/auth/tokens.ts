@@ -30,7 +30,7 @@ export function getServerSecret(): string {
   }
   if (!g.__qdSecretWarned) {
     g.__qdSecretWarned = true;
-    console.warn("[kimkriss] SESSION_SECRET ausente: usando segredo efêmero (rode `npm run db:seed`).");
+    console.warn("[kimekris] SESSION_SECRET ausente: usando segredo efêmero (rode `npm run db:seed`).");
   }
   g.__qdEphemeralSecret ??= randomBytes(32).toString("base64url");
   return g.__qdEphemeralSecret;

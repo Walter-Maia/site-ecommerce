@@ -1,5 +1,5 @@
 /**
- * Semeia o SQLite (data/kimkriss.db) a partir de src/data e garante o admin.
+ * Semeia o SQLite (data/kimekris.db) a partir de src/data e garante o admin.
  *
  *   npm run db:seed                         # idempotente
  *   npm run db:seed -- --reset-admin-password

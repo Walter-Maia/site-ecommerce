@@ -6,18 +6,19 @@ import { IconChevron } from "@/components/loja/icons";
 import { FAQ, FLAT_SHIPPING, FREE_SHIPPING_THRESHOLD, SITE } from "@/data/site";
 import { formatPrice } from "@/lib/format";
 import { faqJsonLd, JsonLd } from "@/lib/seo/jsonld";
+import { pagePath, withBasePath } from "@/lib/static-demo";
 import type { SizeChartRow } from "@/lib/types";
 import { getProductBySlug } from "@/server/catalog";
 
 export const metadata: Metadata = {
   title: "Ajuda: como escolher o tamanho, frete e trocas",
   description:
-    "Respostas rápidas sobre o Provador 3D, frete, trocas em 30 dias, pagamento em até 6x sem juros, cashback e como escolher o tamanho certo na KIM KRISS.",
+    "Respostas rápidas sobre o Provador 3D, frete, trocas em 30 dias, pagamento em até 6x sem juros, cashback e como escolher o tamanho certo na KIM & KRIS.",
   alternates: { canonical: "/ajuda" },
   openGraph: openGraph({
     url: "/ajuda",
-    title: "Ajuda | KIM KRISS®",
-    description: "Como escolher o tamanho, frete, trocas em 30 dias, pagamento e cashback na KIM KRISS.",
+    title: "Ajuda | KIM & KRIS",
+    description: "Como escolher o tamanho, frete, trocas em 30 dias, pagamento e cashback na KIM & KRIS.",
   }),
 };
 
@@ -60,7 +61,7 @@ function MiniTable({ caption, rows, cols }: { caption: string; rows: SizeChartRo
 }
 
 export default async function AjudaPage() {
-  const [tee, shoe] = await Promise.all([getProductBySlug("camiseta-oversized-kim-kriss-07-preta"), getProductBySlug("tenis-court-low-branco")]);
+  const [tee, shoe] = await Promise.all([getProductBySlug("camiseta-oversized-athletic-07-preta"), getProductBySlug("tenis-court-low-branco")]);
 
   return (
     <main id="conteudo" className="gutter pb-24 pt-5">
@@ -87,7 +88,8 @@ export default async function AjudaPage() {
           { href: "#perguntas", label: "Perguntas frequentes" },
           { href: "#trocas", label: "Trocas e devoluções" },
           { href: "#medidas", label: "Tabela de medidas" },
-          { href: "/provador#como-funciona", label: "Provador 3D" },
+          // <a> cru (não Link): na demo estática o basePath entra à mão (no-op no servidor).
+          { href: withBasePath(pagePath("/provador#como-funciona")), label: "Provador 3D" },
         ].map((l) => (
           <a key={l.href} href={l.href} className="inline-flex min-h-11 items-center border border-line px-4 text-sm transition-colors hover:border-ink">
             {l.label}

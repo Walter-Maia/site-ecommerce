@@ -1,4 +1,5 @@
 import { FAQ, FLAT_SHIPPING, FREE_SHIPPING_THRESHOLD, SITE } from "@/data/site";
+import { pagePath } from "@/lib/static-demo";
 import type { Product } from "@/lib/types";
 
 /**
@@ -14,7 +15,19 @@ export function JsonLd({ data }: { data: Json | Json[] }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />;
 }
 
-export const absoluteUrl = (path = "/") => new URL(path, SITE.url).toString();
+/**
+ * URL absoluta a partir de SITE.url, PRESERVANDO um subcaminho do site
+ * (demo estática em https://walter-maia.github.io/site-ecommerce): `new URL("/x", base)`
+ * descartaria o "/site-ecommerce". Na demo, páginas ganham a barra final do export
+ * (trailingSlash). Com SITE.url sem caminho (modo servidor) o resultado é o de sempre.
+ */
+export const absoluteUrl = (path = "/") => {
+  if (/^[a-z][a-z\d+.-]*:/i.test(path)) return new URL(path).toString();
+  const base = new URL(SITE.url);
+  const prefix = base.pathname.replace(/\/+$/, "");
+  const rel = pagePath(path.startsWith("/") ? path : `/${path}`);
+  return new URL(prefix + rel, base.origin).toString();
+};
 
 export function organizationJsonLd(): Json {
   return {
@@ -29,7 +42,7 @@ export function organizationJsonLd(): Json {
     logo: absoluteUrl("/images/icons/icon-512.png"),
     foundingDate: String(SITE.foundingYear),
     email: SITE.email,
-    address: { "@type": "PostalAddress", addressLocality: SITE.city, addressCountry: "BR" },
+    address: { "@type": "PostalAddress", ...(SITE.city ? { addressLocality: SITE.city } : {}), addressCountry: "BR" },
     sameAs: [SITE.instagram],
   };
 }

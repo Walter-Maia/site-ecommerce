@@ -8,7 +8,7 @@ import { chromium } from "playwright-core";
 
 const BASE = (process.argv[2] ?? "http://localhost:3000").replace(/\/$/, "");
 const OUT = process.argv[3] ?? null;
-const SLUG = process.env.E2E_SLUG ?? "camiseta-oversized-kim-kriss-07-preta";
+const SLUG = process.env.E2E_SLUG ?? "camiseta-oversized-athletic-07-preta";
 
 function envLocal(key) {
   try {
@@ -43,7 +43,7 @@ const watch = (page) => {
   });
 };
 
-const email = `e2e+${Date.now()}@kimkriss.test`;
+const email = `e2e+${Date.now()}@kimekris.test`;
 const password = "Tenis-azul-na-quadra-" + Math.random().toString(36).slice(2, 8);
 let orderNumber = null;
 let orderUrl = null;
@@ -159,7 +159,7 @@ await step("login admin → /admin", async () => {
   expect(adminPassword, "ADMIN_SEED_PASSWORD ausente (rode npm run db:seed)");
   await ap.goto(`${BASE}/admin`, { waitUntil: "networkidle" });
   expect(/\/entrar\?next=%2Fadmin/.test(ap.url()), `sem sessão deveria ir para /entrar: ${ap.url()}`);
-  await ap.fill('input[name="email"]', "admin@kimkriss.test");
+  await ap.fill('input[name="email"]', "admin@kimekris.test");
   await ap.fill('input[name="password"]', adminPassword);
   await ap.click('button[type="submit"]');
   await ap.waitForURL(/\/admin$/, { timeout: 30000 });

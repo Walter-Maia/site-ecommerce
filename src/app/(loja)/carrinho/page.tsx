@@ -6,7 +6,7 @@ import { CartPageView } from "@/components/loja/CartPageView";
 
 export const metadata: Metadata = {
   title: "Sacola",
-  description: "Revise as peças da sua sacola, ajuste quantidades e finalize a compra na KIM KRISS.",
+  description: "Revise as peças da sua sacola, ajuste quantidades e finalize a compra na KIM & KRIS.",
   alternates: { canonical: "/carrinho" },
   robots: { index: false, follow: false },
 };

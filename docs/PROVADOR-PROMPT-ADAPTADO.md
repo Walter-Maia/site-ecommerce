@@ -1,10 +1,10 @@
 # Provador 3D — prompt adaptado (base: prompt "DRESSR" do Higgsfield)
 
-O prompt original descreve uma **imagem** de landing page Y2K/PS2. Aqui ele vira uma **interface real e funcional** dentro da loja KIM KRISS. O que muda:
+O prompt original descreve uma **imagem** de landing page Y2K/PS2. Aqui ele vira uma **interface real e funcional** dentro da loja KIM & KRIS. O que muda:
 
-| Original | Adaptação KIM KRISS |
+| Original | Adaptação KIM & KRIS |
 |---|---|
-| Serviço "DRESSR" genérico | Feature da própria loja: **Provador KIM KRISS · SELECT YOUR FIT** |
+| Serviço "DRESSR" genérico | Feature da própria loja: **Provador KIM & KRIS · SELECT YOUR FIT** |
 | Imagem estática 16:9 | Seção interativa e responsiva (desktop 16:9 → tablet 2 colunas → celular empilhado com bottom sheet) |
 | Avatar MIA fixo em T-pose | Manequim 3D procedural ao vivo (MIA feminino e KAUÃ masculino de início; o admin cria outros) com **altura, peso, pele, cabelo e estilo formal/informal** |
 | Números decorativos (42 itens, 98% match) | Números **reais**: peças carregadas do catálogo, curtidas, caimento calculado das medidas |
